@@ -1,6 +1,7 @@
 import "./style.css";
 
 import * as THREE from "three";
+import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 
 window.onload = () => {
   // selecting dom
@@ -11,6 +12,7 @@ window.onload = () => {
 
   const cubeGeometry = new THREE.BoxGeometry(1, 1, 1);
   const cubeMaterial = new THREE.MeshBasicMaterial({ color: "#00ccff" });
+  // const cubeMaterial = new THREE.MeshBasicMaterial({ color: "red" });
   const cubeMesh = new THREE.Mesh(cubeGeometry, cubeMaterial);
 
   scene.add(cubeMesh);
@@ -29,6 +31,17 @@ window.onload = () => {
   // initializing the renderer
 
   const renderer = new THREE.WebGLRenderer({ canvas });
+
+  const controls = new OrbitControls(camera, canvas);
+
+  controls;
+
+  const animate = () => {
+    requestAnimationFrame(animate);
+
+    renderer.render(scene, camera);
+  };
+  animate();
 
   renderer.setSize(window.innerWidth, window.innerHeight);
   // render the scene
