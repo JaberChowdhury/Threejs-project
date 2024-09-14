@@ -18,12 +18,26 @@ window.onload = () => {
   scene.add(cubeMesh);
 
   // initializing camera
+  /*
   const camera = new THREE.PerspectiveCamera(
     75,
     window.innerWidth / window.innerHeight,
     0.1,
     30,
   );
+  */
+
+  const aspectsRatio = window.innerWidth / window.innerHeight;
+
+  const camera = new THREE.OrthographicCamera(
+    -1 * aspectsRatio,
+    1 * aspectsRatio,
+    1,
+    -1,
+    0.1,
+    200,
+  );
+
   camera.position.z = 5;
 
   scene.add(camera);
@@ -39,12 +53,12 @@ window.onload = () => {
   const animate = () => {
     requestAnimationFrame(animate);
 
+    renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.render(scene, camera);
     controls.update();
   };
   animate();
 
-  renderer.setSize(window.innerWidth, window.innerHeight);
   // render the scene
   renderer.render(scene, camera);
 
