@@ -1,3 +1,3 @@
-## Branch : Master
+## Branch : orbit_controls
 
-## Description : Template of 3js projects
+## Description : with orbit controls
