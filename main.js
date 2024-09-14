@@ -34,12 +34,13 @@ window.onload = () => {
 
   const controls = new OrbitControls(camera, canvas);
 
-  controls;
+  controls.autoRotate = true;
 
   const animate = () => {
     requestAnimationFrame(animate);
 
     renderer.render(scene, camera);
+    controls.update();
   };
   animate();
 
