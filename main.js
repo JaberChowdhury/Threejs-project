@@ -38,13 +38,13 @@ window.onload = () => {
 
   const animate = () => {
     requestAnimationFrame(animate);
-
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.render(scene, camera);
     controls.update();
   };
   animate();
 
-  renderer.setSize(window.innerWidth, window.innerHeight);
   // render the scene
   renderer.render(scene, camera);
 
