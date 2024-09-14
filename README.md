@@ -1,3 +1,3 @@
-## Branch : Master
+## Branch : antialiasing
 
-## Description : Template of 3js projects
+## Description : solving antialiasing problem
