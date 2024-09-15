@@ -17,6 +17,9 @@ window.onload = () => {
 
   scene.add(cubeMesh);
 
+  cubeMesh.position.x = 1.2;
+  cubeMesh.position.y = 1.2;
+
   // initializing camera
   const camera = new THREE.PerspectiveCamera(
     75,
@@ -27,6 +30,10 @@ window.onload = () => {
   camera.position.z = 5;
 
   scene.add(camera);
+
+  // initializing axesHelper
+  const axesHelper = new THREE.AxesHelper(4);
+  scene.add(axesHelper);
 
   // initializing the renderer
 
