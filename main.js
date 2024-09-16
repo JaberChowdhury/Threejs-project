@@ -13,20 +13,39 @@ window.onload = () => {
   const cubeGeometry = new THREE.BoxGeometry(1, 1, 1);
   const cubeMaterial = new THREE.MeshBasicMaterial({ color: "#00ccff" });
   // const cubeMaterial = new THREE.MeshBasicMaterial({ color: "red" });
-  const cubeMesh = new THREE.Mesh(cubeGeometry, cubeMaterial);
+  const cubeMesh1 = new THREE.Mesh(cubeGeometry, cubeMaterial);
+  const cubeMesh2 = new THREE.Mesh(cubeGeometry, cubeMaterial);
+  const cubeMesh3 = new THREE.Mesh(cubeGeometry, cubeMaterial);
+  const cubeMesh4 = new THREE.Mesh(cubeGeometry, cubeMaterial);
 
-  scene.add(cubeMesh);
+  cubeMesh1.position.x = 2;
+  cubeMesh2.position.x = 4;
+  cubeMesh3.position.x = 6;
+  cubeMesh4.position.x = 8;
+
+  const cube_Mesh_Groupe = new THREE.Group();
+
+  cube_Mesh_Groupe.add(cubeMesh1);
+  cube_Mesh_Groupe.add(cubeMesh2);
+  cube_Mesh_Groupe.add(cubeMesh3);
+  cube_Mesh_Groupe.add(cubeMesh4);
+
+  scene.add(cube_Mesh_Groupe);
 
   // initializing camera
   const camera = new THREE.PerspectiveCamera(
     75,
     window.innerWidth / window.innerHeight,
     0.1,
-    30,
+    300,
   );
   camera.position.z = 5;
 
   scene.add(camera);
+
+  // AxesHelper
+  const axesHelper = new THREE.AxesHelper(10);
+  scene.add(axesHelper);
 
   // initializing the renderer
 
@@ -37,6 +56,13 @@ window.onload = () => {
   const controls = new OrbitControls(camera, canvas);
 
   controls.autoRotate = true;
+
+  setInterval(() => {
+    cube_Mesh_Groupe.children[0].scale.y = Math.random() * 20;
+    cube_Mesh_Groupe.children[1].scale.y = Math.random() * 20;
+    cube_Mesh_Groupe.children[2].scale.y = Math.random() * 20;
+    cube_Mesh_Groupe.children[3].scale.y = Math.random() * 20;
+  }, 500);
 
   const animate = () => {
     requestAnimationFrame(animate);
