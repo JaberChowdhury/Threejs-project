@@ -1,3 +1,3 @@
-## Branch : template
+## Branch : multiple_cub3_m3sh
 
-## Description : Template of 3js projects
+## Description : making multiple cube mesh
