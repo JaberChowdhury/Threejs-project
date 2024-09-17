@@ -8,9 +8,31 @@ import hsl from "./lib/Hue";
 window.onload = () => {
   // selecting dom
   const canvas = document.querySelector("#canvas");
-
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   // state
-  const limit = 32;
+  const limit = 30;
+  let iswireframe = true
+  let cubeDistance = 0;
   let meshs1 = [];
   let meshs2 = [];
   let meshs3 = [];
@@ -24,7 +46,8 @@ window.onload = () => {
   let meshs11 = [];
   let meshs12 = [];
   let meshs13 = [];
-
+  
+  
   // initializing scene
   const scene = new THREE.Scene();
   const cubeGeometry = new THREE.BoxGeometry(1, 1, 1);
@@ -32,143 +55,143 @@ window.onload = () => {
   for (let i = 0; i < limit; i++) {
     const color = hexadecimal_color();
     const cubeMaterial = new THREE.MeshBasicMaterial({
-      color: hsl(i + limit * 5),
+      color: hsl(i + limit * 5), wireframe : iswireframe
     });
     const cubeMesh = new THREE.Mesh(cubeGeometry, cubeMaterial);
-    cubeMesh.position.x = 2 * i + 2;
+    cubeMesh.position.x = 2 * i + cubeDistance;
     meshs1.push(cubeMesh);
   }
 
   for (let i = 0; i < limit; i++) {
     const color = hexadecimal_color();
     const cubeMaterial = new THREE.MeshBasicMaterial({
-      color: hsl(i + limit * 5),
+      color: hsl(i + limit * 5), wireframe : iswireframe
     });
     const cubeMesh = new THREE.Mesh(cubeGeometry, cubeMaterial);
-    cubeMesh.position.y = 2 * i + 2;
+    cubeMesh.position.y = 2 * i + cubeDistance;
     meshs2.push(cubeMesh);
   }
 
   for (let i = 0; i < limit; i++) {
     const color = hexadecimal_color();
     const cubeMaterial = new THREE.MeshBasicMaterial({
-      color: hsl(i + limit * 5),
+      color: hsl(i + limit * 5), wireframe : iswireframe
     });
     const cubeMesh = new THREE.Mesh(cubeGeometry, cubeMaterial);
-    cubeMesh.position.z = 2 * i + 2;
+    cubeMesh.position.z = 2 * i + cubeDistance;
     meshs3.push(cubeMesh);
   }
 
   for (let i = 0; i < limit; i++) {
     const color = hexadecimal_color();
     const cubeMaterial = new THREE.MeshBasicMaterial({
-      color: hsl(i + limit * 5),
+      color: hsl(i + limit * 5), wireframe : iswireframe
     });
     const cubeMesh = new THREE.Mesh(cubeGeometry, cubeMaterial);
-    cubeMesh.position.y = limit * 2 + 2;
-    cubeMesh.position.x = 2 * i + 2;
+    cubeMesh.position.y = limit * 2 + cubeDistance;
+    cubeMesh.position.x = 2 * i + cubeDistance;
     meshs4.push(cubeMesh);
   }
 
   for (let i = 0; i < limit; i++) {
     const color = hexadecimal_color();
     const cubeMaterial = new THREE.MeshBasicMaterial({
-      color: hsl(i + limit * 5),
+      color: hsl(i + limit * 5), wireframe : iswireframe
     });
     const cubeMesh = new THREE.Mesh(cubeGeometry, cubeMaterial);
-    cubeMesh.position.z = limit * 2 + 2;
-    cubeMesh.position.x = 2 * i + 2;
+    cubeMesh.position.z = limit * 2 + cubeDistance;
+    cubeMesh.position.x = 2 * i + cubeDistance;
     meshs5.push(cubeMesh);
   }
 
   for (let i = 0; i < limit; i++) {
     const color = hexadecimal_color();
     const cubeMaterial = new THREE.MeshBasicMaterial({
-      color: hsl(i + limit * 5),
+      color: hsl(i + limit * 5), wireframe : iswireframe
     });
     const cubeMesh = new THREE.Mesh(cubeGeometry, cubeMaterial);
-    cubeMesh.position.x = limit * 2 + 2;
-    cubeMesh.position.z = 2 * i + 2;
+    cubeMesh.position.x = limit * 2 + cubeDistance;
+    cubeMesh.position.z = 2 * i + cubeDistance;
     meshs6.push(cubeMesh);
   }
 
   for (let i = 0; i < limit; i++) {
     const color = hexadecimal_color();
     const cubeMaterial = new THREE.MeshBasicMaterial({
-      color: hsl(i + limit * 5),
+      color: hsl(i + limit * 5), wireframe : iswireframe
     });
     const cubeMesh = new THREE.Mesh(cubeGeometry, cubeMaterial);
-    cubeMesh.position.x = limit * 2 + 2;
-    cubeMesh.position.y = 2 * i + 2;
+    cubeMesh.position.x = limit * 2 + cubeDistance;
+    cubeMesh.position.y = 2 * i + cubeDistance;
     meshs7.push(cubeMesh);
   }
 
   for (let i = 0; i < limit; i++) {
     const color = hexadecimal_color();
     const cubeMaterial = new THREE.MeshBasicMaterial({
-      color: hsl(i + limit * 5),
+      color: hsl(i + limit * 5), wireframe : iswireframe
     });
     const cubeMesh = new THREE.Mesh(cubeGeometry, cubeMaterial);
-    cubeMesh.position.y = limit * 2 + 2;
-    cubeMesh.position.z = 2 * i + 2;
+    cubeMesh.position.y = limit * 2 + cubeDistance;
+    cubeMesh.position.z = 2 * i + cubeDistance;
     meshs8.push(cubeMesh);
   }
 
   for (let i = 0; i < limit; i++) {
     const color = hexadecimal_color();
     const cubeMaterial = new THREE.MeshBasicMaterial({
-      color: hsl(i + limit * 5),
+      color: hsl(i + limit * 5), wireframe : iswireframe
     });
     const cubeMesh = new THREE.Mesh(cubeGeometry, cubeMaterial);
-    cubeMesh.position.x = limit * 2 + 2;
-    cubeMesh.position.y = limit * 2 + 2;
-    cubeMesh.position.z = 2 * i + 2;
+    cubeMesh.position.x = limit * 2 + cubeDistance;
+    cubeMesh.position.y = limit * 2 + cubeDistance;
+    cubeMesh.position.z = 2 * i + cubeDistance;
     meshs9.push(cubeMesh);
   }
 
   for (let i = 0; i < limit; i++) {
     const color = hexadecimal_color();
     const cubeMaterial = new THREE.MeshBasicMaterial({
-      color: hsl(i + limit * 5),
+      color: hsl(i + limit * 5), wireframe : iswireframe
     });
     const cubeMesh = new THREE.Mesh(cubeGeometry, cubeMaterial);
-    cubeMesh.position.z = limit * 2 + 2;
-    cubeMesh.position.x = 2 * i + 2;
+    cubeMesh.position.z = limit * 2 + cubeDistance;
+    cubeMesh.position.x = 2 * i + cubeDistance;
     meshs10.push(cubeMesh);
   }
 
   for (let i = 0; i < limit; i++) {
     const color = hexadecimal_color();
     const cubeMaterial = new THREE.MeshBasicMaterial({
-      color: hsl(i + limit * 5),
+      color: hsl(i + limit * 5), wireframe : iswireframe
     });
     const cubeMesh = new THREE.Mesh(cubeGeometry, cubeMaterial);
-    cubeMesh.position.z = limit * 2 + 2;
-    cubeMesh.position.y = 2 * i + 2;
+    cubeMesh.position.z = limit * 2 + cubeDistance;
+    cubeMesh.position.y = 2 * i + cubeDistance;
     meshs11.push(cubeMesh);
   }
 
   for (let i = 0; i < limit; i++) {
     const color = hexadecimal_color();
     const cubeMaterial = new THREE.MeshBasicMaterial({
-      color: hsl(i + limit * 5),
+      color: hsl(i + limit * 5), wireframe : iswireframe
     });
     const cubeMesh = new THREE.Mesh(cubeGeometry, cubeMaterial);
-    cubeMesh.position.y = limit * 2 + 2;
-    cubeMesh.position.z = limit * 2 + 2;
-    cubeMesh.position.x = 2 * i + 2;
+    cubeMesh.position.y = limit * 2 + cubeDistance;
+    cubeMesh.position.z = limit * 2 + cubeDistance;
+    cubeMesh.position.x = 2 * i + cubeDistance;
     meshs12.push(cubeMesh);
   }
 
   for (let i = 0; i < limit; i++) {
     const color = hexadecimal_color();
     const cubeMaterial = new THREE.MeshBasicMaterial({
-      color: hsl(i + limit * 5),
+      color: hsl(i + limit * 5), wireframe : iswireframe
     });
     const cubeMesh = new THREE.Mesh(cubeGeometry, cubeMaterial);
-    cubeMesh.position.x = limit * 2 + 2;
-    cubeMesh.position.z = limit * 2 + 2;
-    cubeMesh.position.y = 2 * i + 2;
+    cubeMesh.position.x = limit * 2 + cubeDistance;
+    cubeMesh.position.z = limit * 2 + cubeDistance;
+    cubeMesh.position.y = 2 * i + cubeDistance;
     meshs13.push(cubeMesh);
   }
 
@@ -193,11 +216,11 @@ window.onload = () => {
 
   scene.add(cube_Mesh_Groupe);
 
-  cube_Mesh_Groupe.scale.y = 2;
+  // cube_Mesh_Groupe.scale.y = 2;
 
   // initializing camera
   const camera = new THREE.PerspectiveCamera(
-    60,
+    10,
     window.innerWidth / window.innerHeight,
     0.1,
     9000,
@@ -221,6 +244,7 @@ window.onload = () => {
   controls.autoRotate = true;
 
   const animate = () => {
+    
     requestAnimationFrame(animate);
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
@@ -232,5 +256,4 @@ window.onload = () => {
   // render the scene
   renderer.render(scene, camera);
 
-  console.log(THREE);
 };
